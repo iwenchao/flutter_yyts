@@ -1,13 +1,13 @@
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_yyts/pages/tab_pages.dart';
-import 'package:flutter_yyts/redux/states/ReduxState.dart';
+import 'package:flutter_yyts/redux/states/main.dart';
+import 'package:flutter_yyts/redux/vm/main.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
 void main() {
-  final Store<ReduxState> store = StorContainer.global;
-  runApp(MyApp(store: store))
+  final Store<ReduxState> store = StoreContainer.global;
+  runApp(MyApp(store: store));
 }
 
 class MyApp extends StatelessWidget {
