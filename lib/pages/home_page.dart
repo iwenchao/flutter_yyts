@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:flutter_yyts/redux/states/main.dart';
+import 'package:flutter_yyts/redux/vm/home.dart';
 import 'package:flutter_yyts/widgets/app_drawer.dart';
+import 'package:flutter_yyts/widgets/home_banner.dart';
 import 'package:flutter_yyts/widgets/search_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -44,8 +48,28 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
-        body: Center(
-          child: Text("hahahah"),
+        body: StoreConnector<ReduxState, HomeViewModel>(
+          converter: (store) => HomeViewModel(store),
+          builder: (context, vm) {
+            return Container(
+                child: vm.isLoading
+                    ? Center(
+                        child: CircularProgressIndicator(),
+                      )
+                    : Container(
+                        child: ListView(
+                          primary: true,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: vm.ads.isNotEmpty
+                                  ? HomeBanner(ads: vm.ads)
+                                  : Container(),
+                            ),
+                          ],
+                        ),
+                      ));
+          },
         ));
   }
 }
