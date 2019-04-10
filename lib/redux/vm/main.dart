@@ -1,5 +1,6 @@
 import 'package:flutter_yyts/redux/states/home.dart';
 import 'package:flutter_yyts/redux/states/main.dart';
+import 'package:flutter_yyts/redux/states/profile.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_yyts/redux/reducers/main.dart';
 
@@ -14,4 +15,5 @@ class StoreContainer {
 }
 
 Store<ReduxState> reduxStore() => Store<ReduxState>(reduxReducer,
-    initialState: ReduxState(home: HomeState.initialState()));
+    initialState: ReduxState(
+        home: HomeState.initialState(), profile: ProfileState.initialState()));
