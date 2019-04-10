@@ -44,6 +44,8 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
-        body: new Text("哈哈哈"));
+        body: Center(
+          child: Text("hahahah"),
+        ));
   }
 }
