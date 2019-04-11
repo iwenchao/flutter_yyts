@@ -5,7 +5,6 @@ abstract class ActionType<T> {
 
   @override
   String toString() {
-    // TODO: implement toString
     return '$runtimeType(${payload?.runtimeType})';
   }
 }

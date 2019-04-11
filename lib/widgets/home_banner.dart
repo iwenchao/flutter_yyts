@@ -49,7 +49,9 @@ class _HomeBannerState extends State<HomeBanner> {
                               builder: (context) => HomePage()));
                         },
                         child: Image(
-                          image: NetworkImage(ad.pic),
+                          image: NetworkImage(
+                            ad.pic ?? "http://popeyelau.qiniudn.com/popeye.png",
+                          ),
                         ),
                       ))
                   .toList(),

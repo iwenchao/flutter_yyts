@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:flutter_yyts/api/api.dart';
 import 'package:flutter_yyts/redux/states/main.dart';
 import 'package:flutter_yyts/redux/vm/home.dart';
 import 'package:flutter_yyts/widgets/app_drawer.dart';
@@ -20,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     //这里需要进行网络获取数据
+    RestfulApi.fetchBanners();
   }
 
   @override
@@ -64,7 +66,11 @@ class _HomePageState extends State<HomePage> {
                               padding: const EdgeInsets.all(8),
                               child: vm.ads.isNotEmpty
                                   ? HomeBanner(ads: vm.ads)
-                                  : Container(),
+                                  : Container(
+                                      child: Center(
+                                        child: Text("哈哈哈"),
+                                      ),
+                                    ),
                             ),
                           ],
                         ),

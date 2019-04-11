@@ -6,4 +6,8 @@ HomeState reducer(HomeState state, ActionType action) {
   if (action is UpdateTVSchedule) {
     return state.copyWith(schedules: action.payload);
   }
+  if (action is UpdateAds) {
+    return state.copyWith(ads: action.payload, isLoading: false);
+  }
+  return state;
 }
