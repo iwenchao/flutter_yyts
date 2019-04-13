@@ -6,6 +6,8 @@ import 'package:flutter_yyts/redux/vm/home.dart';
 import 'package:flutter_yyts/widgets/app_drawer.dart';
 import 'package:flutter_yyts/widgets/home_banner.dart';
 import 'package:flutter_yyts/widgets/search_bar.dart';
+import 'package:flutter_yyts/widgets/section_title.dart';
+import 'package:flutter_yyts/widgets/today_broadcast.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -22,6 +24,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     //这里需要进行网络获取数据
     RestfulApi.fetchBanners();
+    RestfulApi.fetchSchedule();
   }
 
   @override
@@ -71,6 +74,21 @@ class _HomePageState extends State<HomePage> {
                                         child: Text("哈哈哈"),
                                       ),
                                     ),
+                            ),
+                            SectionTitle(
+                              title: "今日播出",
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8),
+                              child: vm.schedules.isNotEmpty
+                                  ? TodayBroadcast(
+                                      schedules: vm.schedules,
+                                    )
+                                  : Container(
+                                      child: Center(
+                                      child: Text("哈哈哈"),
+                                    )),
                             ),
                           ],
                         ),

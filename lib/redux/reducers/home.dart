@@ -8,8 +8,6 @@ HomeState reducer(HomeState state, ActionType action) {
   }
   if (action is UpdateAds) {
     return state.copyWith(ads: action.payload, isLoading: false);
-
-
   }
   return state;
 }
