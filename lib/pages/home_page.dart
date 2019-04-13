@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_yyts/api/api.dart';
+import 'package:flutter_yyts/models/article_info.dart';
 import 'package:flutter_yyts/redux/states/main_state.dart';
 import 'package:flutter_yyts/redux/vm/home_vm.dart';
 import 'package:flutter_yyts/widgets/app_drawer_widget.dart';
@@ -27,6 +28,7 @@ class _HomePageState extends State<HomePage> {
     //这里需要进行网络获取数据
     RestfulApi.fetchBanners();
     RestfulApi.fetchSchedule();
+    RestfulApi.fetchArticleList();
   }
 
   @override
@@ -99,7 +101,10 @@ class _HomePageState extends State<HomePage> {
                                     physics: ClampingScrollPhysics(),
                                     itemCount: vm.articles.length,
                                     itemBuilder: (context, index) {
-                                      return ArticleView();
+                                      return ArticleView(
+                                        vm: ArticleViewModel.fromArticle(
+                                            vm.articles[index]),
+                                      );
                                     },
                                   )
                                 : Container()

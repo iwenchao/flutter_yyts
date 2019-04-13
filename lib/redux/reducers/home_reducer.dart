@@ -9,5 +9,8 @@ HomeState reducer(HomeState state, ActionType action) {
   if (action is UpdateAdsAction) {
     return state.copyWith(ads: action.payload, isLoading: false);
   }
+  if (action is UpdateArticleAction) {
+    return state.copyWith(articles: action.payload, isLoading: false);
+  }
   return state;
 }

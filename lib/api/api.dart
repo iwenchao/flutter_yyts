@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter_yyts/models/ad_info.dart';
+import 'package:flutter_yyts/models/article_info.dart';
 import 'package:flutter_yyts/models/tv_schedule_info.dart';
 import 'package:flutter_yyts/redux/actions/home_action.dart';
 import 'package:flutter_yyts/redux/vm/main_vm.dart';
@@ -16,6 +17,7 @@ class RestfulApi {
     StoreContainer.global.dispatch(UpdateAdsAction(payload: adList));
   }
 
+  /// 获取今日广播
   static fetchSchedule() async {
     final today = DateTime.now();
     final formatter = DateFormat("yyyy-MM-dd");
@@ -32,5 +34,15 @@ class RestfulApi {
           (map[key] as List).map((v) => TVScheduleVo.fromJson(v)).toList());
     });
     StoreContainer.global.dispatch(UpdateTVScheduleAction(payload: list));
+  }
+
+  static fetchArticleList() async {
+    final url =
+        "http://ios.zmzapi.com/index.php?accesskey=519f9cab85c8059d17544947k361a827&client=1&g=api/v3&m=index&a=article_list&page=0&token=edc3c80aed456c1266237e555b5bf218&uid=5704761";
+    var response = await http.get(url);
+    List map = json.decode(response.body)["data"];
+    List<ArticleVo> list = [];
+    list = map.map((v) => ArticleVo.fromJson(v)).toList();
+    StoreContainer.global.dispatch(UpdateArticleAction(payload: list));
   }
 }
