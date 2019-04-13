@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_yyts/pages/home_page.dart';
-import 'package:flutter_yyts/widgets/tab_bar_item.dart';
+import 'package:flutter_yyts/widgets/tab_bar_item_widget.dart';
 
 class TabPage extends StatefulWidget {
   @override
@@ -39,22 +39,22 @@ class TabPageState extends State<TabPage> with TickerProviderStateMixin {
           indicatorColor: Colors.transparent,
           controller: _tabController,
           tabs: <Widget>[
-            TabBarItem(
+            TabBarItemView(
               text: "首页",
               icon: Icons.home,
               selected: _selectedIndex == 0,
             ),
-            TabBarItem(
+            TabBarItemView(
               text: "排行",
               icon: Icons.local_play,
               selected: _selectedIndex == 1,
             ),
-            TabBarItem(
+            TabBarItemView(
               text: "片库",
               icon: Icons.ondemand_video,
               selected: _selectedIndex == 2,
             ),
-            TabBarItem(
+            TabBarItemView(
               text: "动态",
               icon: Icons.camera,
               selected: _selectedIndex == 3,

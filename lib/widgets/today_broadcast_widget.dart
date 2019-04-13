@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_yyts/models/tv_schedule.dart';
+import 'package:flutter_yyts/models/tv_schedule_info.dart';
 import 'package:flutter_yyts/pages/home_page.dart';
-import 'package:flutter_yyts/widgets/tag.dart';
+import 'package:flutter_yyts/widgets/tag_widget.dart';
 
-class TodayBroadcast extends StatelessWidget {
-  final List<TVSchedule> schedules;
+class TodayBroadcastView extends StatelessWidget {
+  final List<TVScheduleVo> schedules;
 
-  const TodayBroadcast({Key key, this.schedules}) : super(key: key);
+  const TodayBroadcastView({Key key, this.schedules}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class TodayBroadcast extends StatelessWidget {
                 ),
                 header: GridTileBar(
                   leading: item.statusCn.isNotEmpty
-                      ? Tag(
+                      ? TagView(
                           text: item.statusCn,
                           color: Colors.white,
                           backgroundColor:

@@ -1,4 +1,4 @@
-class Ad {
+class AdVo {
   int adId;
   int adType;
   String pic;
@@ -6,9 +6,9 @@ class Ad {
   String wh;
   int status;
 
-  Ad({this.adId, this.adType, this.pic, this.click, this.wh, this.status});
+  AdVo({this.adId, this.adType, this.pic, this.click, this.wh, this.status});
 
-  Ad.fromJson(Map<String, dynamic> json) {
+  AdVo.fromJson(Map<String, dynamic> json) {
     adId = json['adId'];
     adType = json['adType'];
     pic = json['pic'];

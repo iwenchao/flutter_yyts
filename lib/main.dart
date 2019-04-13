@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_yyts/pages/tab_pages.dart';
-import 'package:flutter_yyts/redux/states/main.dart';
-import 'package:flutter_yyts/redux/vm/main.dart';
+import 'package:flutter_yyts/redux/states/main_state.dart';
+import 'package:flutter_yyts/redux/vm/main_vm.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
 void main() {
   final Store<ReduxState> store = StoreContainer.global;
-  runApp(MyApp(store: store));
+  runApp(EntryView(store: store));
 }
 
-class MyApp extends StatelessWidget {
+class EntryView extends StatelessWidget {
   final Store<ReduxState> store;
 
-  MyApp({this.store});
+  EntryView({this.store});
 
   @override
   Widget build(BuildContext context) {

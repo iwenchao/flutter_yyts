@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class TabBarItem extends StatelessWidget {
+class TabBarItemView extends StatelessWidget {
   final IconData icon;
   final String text;
   final bool selected;
 
-  TabBarItem({this.icon, this.text, this.selected});
+  TabBarItemView({this.icon, this.text, this.selected});
 
   @override
   Widget build(BuildContext context) {

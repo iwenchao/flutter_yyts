@@ -1,4 +1,4 @@
-class Profile {
+class ProfileVo {
   String upgrade;
   String uid;
   String sex;
@@ -13,7 +13,7 @@ class Profile {
   String nickname;
   String email;
 
-  Profile(
+  ProfileVo(
       {this.upgrade,
       this.uid,
       this.sex,
@@ -28,14 +28,14 @@ class Profile {
       this.nickname,
       this.email});
 
-  Profile.initialState() {
+  ProfileVo.initialState() {
     nickname = "Login";
     userpic =
         "http://files.zmzjstu.com/ftp/avatar/2018/0721/9810ce1e3d9b7bc442495c334b35427a_b.jpg";
     groupName = "初级会员";
   }
 
-  Profile.fromJson(Map<String, dynamic> json) {
+  ProfileVo.fromJson(Map<String, dynamic> json) {
     upgrade = json['upgrade'];
     uid = json['uid'];
     sex = json['sex'];

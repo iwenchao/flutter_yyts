@@ -1,7 +1,7 @@
 import 'package:flutter_yyts/common/utils.dart';
-import 'package:flutter_yyts/models/article_list.dart';
+import 'package:flutter_yyts/models/article_list_info.dart';
 
-class Article {
+class ArticleVo {
   String id;
   String mid;
   String typeCn;
@@ -32,7 +32,7 @@ class Article {
   String title;
   String dateline;
 
-  Article(
+  ArticleVo(
       {this.id,
       this.mid,
       this.typeCn,
@@ -63,7 +63,7 @@ class Article {
       this.title,
       this.dateline});
 
-  Article.fromJson(Map<String, dynamic> json) {
+  ArticleVo.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     mid = json['mid'];
     typeCn = json['type_cn'];
@@ -117,7 +117,7 @@ class ArticleViewModel {
   String time;
   String cid;
 
-  ArticleViewModel.fromArticle(Article article) {
+  ArticleViewModel.fromArticle(ArticleVo article) {
     id = article.id;
     author = article.username ?? article.authorName;
     goodCount = article.good;
@@ -149,7 +149,7 @@ class ArticleViewModel {
     }
   }
 
-  ArticleViewModel.fromVideoArticle(ArticleList article) {
+  ArticleViewModel.fromVideoArticle(ArticleListVo article) {
     id = article.id;
     author = article.authorName;
     goodCount = article.good;

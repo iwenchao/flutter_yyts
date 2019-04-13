@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class SectionTitle extends StatelessWidget {
+class SectionTitleView extends StatelessWidget {
   final String title;
 
-  const SectionTitle({Key key, this.title}) : super(key: key);
+  const SectionTitleView({Key key, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

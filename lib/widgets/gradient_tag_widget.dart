@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class GradientTag extends StatelessWidget {
+class GradientTagView extends StatelessWidget {
   final Color color;
   final String title;
   final Gradient gradient;
 
-  GradientTag({Key key, this.color, this.title, this.gradient})
+  GradientTagView({Key key, this.color, this.title, this.gradient})
       : super(key: key);
 
   @override

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Tag extends StatelessWidget {
+class TagView extends StatelessWidget {
   final String text;
   final Color backgroundColor;
   final Color color;
   final bool border;
 
-  const Tag({Key key, this.text, this.backgroundColor, this.color, this.border})
+  const TagView(
+      {Key key, this.text, this.backgroundColor, this.color, this.border})
       : super(key: key);
 
   @override

@@ -1,4 +1,4 @@
-class ArticleList {
+class ArticleListVo {
   String id;
   String intro;
   String commentsCount;
@@ -18,7 +18,7 @@ class ArticleList {
   String posterS;
   String views;
 
-  ArticleList(
+  ArticleListVo(
       {this.id,
       this.intro,
       this.commentsCount,
@@ -38,7 +38,7 @@ class ArticleList {
       this.posterS,
       this.views});
 
-  ArticleList.fromJson(Map<String, dynamic> json) {
+  ArticleListVo.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     intro = json['intro'];
     commentsCount = json['comments_count'].toString();

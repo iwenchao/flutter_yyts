@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class SearchBar extends StatelessWidget {
+class SearchBarView extends StatelessWidget {
   final String placeholder;
   final bool enabled;
   final Function onSubmitted;
 
-  SearchBar(
+  SearchBarView(
       {Key key,
       this.placeholder = "搜索美剧、日剧、电影",
       this.enabled = true,

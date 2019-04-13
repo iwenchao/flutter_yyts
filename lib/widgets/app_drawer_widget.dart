@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_yyts/pages/home_page.dart';
-import 'package:flutter_yyts/redux/states/main.dart';
-import 'package:flutter_yyts/redux/vm/profile.dart';
-import 'package:flutter_yyts/widgets/gradient_tag.dart';
+import 'package:flutter_yyts/redux/states/main_state.dart';
+import 'package:flutter_yyts/redux/vm/profile_vm.dart';
+import 'package:flutter_yyts/widgets/gradient_tag_widget.dart';
 
-class AppDrawer extends StatelessWidget {
+class AppDrawerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<ReduxState, ProfileViewModel>(
@@ -31,7 +31,7 @@ class AppDrawer extends StatelessWidget {
                     SizedBox(
                       width: 8,
                     ),
-                    GradientTag(
+                    GradientTagView(
                       title: vm.profile.groupName ?? "至尊会员",
                       gradient:
                           LinearGradient(colors: [Colors.orange, Colors.red]),

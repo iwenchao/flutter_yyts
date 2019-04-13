@@ -1,8 +1,8 @@
-import 'package:flutter_yyts/redux/states/home.dart';
-import 'package:flutter_yyts/redux/states/main.dart';
-import 'package:flutter_yyts/redux/states/profile.dart';
+import 'package:flutter_yyts/redux/states/home_state.dart';
+import 'package:flutter_yyts/redux/states/main_state.dart';
+import 'package:flutter_yyts/redux/states/profile_state.dart';
 import 'package:redux/redux.dart';
-import 'package:flutter_yyts/redux/reducers/main.dart';
+import 'package:flutter_yyts/redux/reducers/main_reducer.dart';
 
 abstract class ViewModel {
   final Store<ReduxState> store;

@@ -1,4 +1,4 @@
-class TVSchedule {
+class TVScheduleVo {
   String id;
   String enname;
   String episode;
@@ -12,7 +12,7 @@ class TVSchedule {
   String playTime;
   String status;
 
-  TVSchedule(
+  TVScheduleVo(
       {this.id,
       this.enname,
       this.episode,
@@ -26,7 +26,7 @@ class TVSchedule {
       this.playTime,
       this.status});
 
-  TVSchedule.fromJson(Map<String, dynamic> json) {
+  TVScheduleVo.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     enname = json['enname'];
     episode = json['episode'];

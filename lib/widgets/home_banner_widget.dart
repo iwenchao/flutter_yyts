@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_yyts/models/ad.dart';
+import 'package:flutter_yyts/models/ad_info.dart';
 import 'package:flutter_yyts/pages/home_page.dart';
 
-class HomeBanner extends StatefulWidget {
-  final List<Ad> ads;
+class HomeBannerView extends StatefulWidget {
+  final List<AdVo> ads;
 
-  const HomeBanner({Key key, this.ads}) : super(key: key);
+  const HomeBannerView({Key key, this.ads}) : super(key: key);
 
   @override
-  _HomeBannerState createState() {
-    return _HomeBannerState();
+  _HomeBannerViewState createState() {
+    return _HomeBannerViewState();
   }
 }
 
-class _HomeBannerState extends State<HomeBanner> {
+class _HomeBannerViewState extends State<HomeBannerView> {
   int sliderIndex = 0;
   bool running = false;
   PageController controller;

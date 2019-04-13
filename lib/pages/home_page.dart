@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_yyts/api/api.dart';
-import 'package:flutter_yyts/redux/states/main.dart';
-import 'package:flutter_yyts/redux/vm/home.dart';
-import 'package:flutter_yyts/widgets/app_drawer.dart';
-import 'package:flutter_yyts/widgets/home_banner.dart';
-import 'package:flutter_yyts/widgets/search_bar.dart';
-import 'package:flutter_yyts/widgets/section_title.dart';
-import 'package:flutter_yyts/widgets/today_broadcast.dart';
+import 'package:flutter_yyts/redux/states/main_state.dart';
+import 'package:flutter_yyts/redux/vm/home_vm.dart';
+import 'package:flutter_yyts/widgets/app_drawer_widget.dart';
+import 'package:flutter_yyts/widgets/article_view_widget.dart';
+import 'package:flutter_yyts/widgets/home_banner_widget.dart';
+import 'package:flutter_yyts/widgets/search_bar_widget.dart';
+import 'package:flutter_yyts/widgets/section_divider_widget.dart';
+import 'package:flutter_yyts/widgets/section_title_widget.dart';
+import 'package:flutter_yyts/widgets/today_broadcast_widget.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -32,11 +34,11 @@ class _HomePageState extends State<HomePage> {
     //这里需要构建整个页面ui
     return Scaffold(
         backgroundColor: Colors.white,
-        drawer: AppDrawer(),
+        drawer: AppDrawerView(),
         appBar: AppBar(
           elevation: 0.0,
           title: GestureDetector(
-            child: SearchBar(
+            child: SearchBarView(
               enabled: false,
             ),
             onTap: () {
@@ -68,21 +70,21 @@ class _HomePageState extends State<HomePage> {
                             Padding(
                               padding: const EdgeInsets.all(8),
                               child: vm.ads.isNotEmpty
-                                  ? HomeBanner(ads: vm.ads)
+                                  ? HomeBannerView(ads: vm.ads)
                                   : Container(
                                       child: Center(
                                         child: Text("哈哈哈"),
                                       ),
                                     ),
                             ),
-                            SectionTitle(
+                            SectionTitleView(
                               title: "今日播出",
                             ),
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 8),
                               child: vm.schedules.isNotEmpty
-                                  ? TodayBroadcast(
+                                  ? TodayBroadcastView(
                                       schedules: vm.schedules,
                                     )
                                   : Container(
@@ -90,6 +92,17 @@ class _HomePageState extends State<HomePage> {
                                       child: Text("哈哈哈"),
                                     )),
                             ),
+                            SectionDividerView(),
+                            vm.articles.isNotEmpty
+                                ? ListView.builder(
+                                    shrinkWrap: true,
+                                    physics: ClampingScrollPhysics(),
+                                    itemCount: vm.articles.length,
+                                    itemBuilder: (context, index) {
+                                      return ArticleView();
+                                    },
+                                  )
+                                : Container()
                           ],
                         ),
                       ));
