@@ -28,6 +28,8 @@ dependencies:
   redux: "^3.0.0"
   flutter_redux: "^0.5.2"
   intl: ^0.15.7
+  video_player: ^0.10.0+5
+  chewie: ^0.9.7
 
 dev_dependencies:
   flutter_test:
@@ -50,6 +52,7 @@ flutter:
   - assets/images/cover.png
   - assets/images/drawer_bg.jpeg
   - assets/images/placeholder.png
+  - assets/images/play_btn.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
