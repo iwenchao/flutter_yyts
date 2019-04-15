@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_yyts/pages/home_page.dart';
+import 'package:flutter_yyts/pages/range_page.dart';
 import 'package:flutter_yyts/widgets/tab_bar_item_widget.dart';
 
 class TabPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return new TabPageState();
+    return _TabPageState();
   }
 }
 
-class TabPageState extends State<TabPage> with TickerProviderStateMixin {
+class _TabPageState extends State<TabPage> with TickerProviderStateMixin {
   TabController _tabController;
   int _selectedIndex = 0;
 
@@ -30,7 +31,7 @@ class TabPageState extends State<TabPage> with TickerProviderStateMixin {
       body: TabBarView(
         controller: _tabController,
         physics: NeverScrollableScrollPhysics(),
-        children: <Widget>[HomePage(), HomePage(), HomePage(), HomePage()],
+        children: <Widget>[HomePage(), RangePage(), HomePage(), HomePage()],
       ),
       bottomNavigationBar: Material(
         color: Colors.grey[100],
