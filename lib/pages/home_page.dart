@@ -29,6 +29,8 @@ class _HomePageState extends State<HomePage> {
     RestfulApi.fetchBanners();
     RestfulApi.fetchSchedule();
     RestfulApi.fetchArticleList();
+    //获取用户信息
+    RestfulApi.fetchUserProfile();
   }
 
   @override

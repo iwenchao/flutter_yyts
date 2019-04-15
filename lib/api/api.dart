@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'package:flutter_yyts/models/ad_info.dart';
 import 'package:flutter_yyts/models/article_info.dart';
+import 'package:flutter_yyts/models/profile_info.dart';
 import 'package:flutter_yyts/models/tv_schedule_info.dart';
 import 'package:flutter_yyts/redux/actions/home_action.dart';
+import 'package:flutter_yyts/redux/actions/profile_action.dart';
 import 'package:flutter_yyts/redux/vm/main_vm.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -44,5 +46,15 @@ class RestfulApi {
     List<ArticleVo> list = [];
     list = map.map((v) => ArticleVo.fromJson(v)).toList();
     StoreContainer.global.dispatch(UpdateArticleAction(payload: list));
+  }
+
+  /// 获取用户信息
+  static fetchUserProfile() async {
+    final url =
+        "http://ios.zmzapi.com/index.php?accesskey=519f9cab85c8059d17544947k361a827&client=1&g=api/v3&m=index&a=login&account=popeyelau%40gmail.com&did=2A2B9DE8-5038-4FBE-8ECB-DD86D3301FB1&password=Yyets123456&registration_id=141fe1da9efde137552";
+    var response = await http.get(url);
+    Map<String, dynamic> map = json.decode(response.body)["data"];
+    ProfileVo profileVo = ProfileVo.fromJson(map);
+    StoreContainer.global.dispatch(UpdateUserProfileAction(payload: profileVo));
   }
 }
