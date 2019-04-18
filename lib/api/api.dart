@@ -2,9 +2,11 @@ import 'dart:convert';
 import 'package:flutter_yyts/models/ad_info.dart';
 import 'package:flutter_yyts/models/article_info.dart';
 import 'package:flutter_yyts/models/profile_info.dart';
+import 'package:flutter_yyts/models/ranks_info.dart';
 import 'package:flutter_yyts/models/tv_schedule_info.dart';
 import 'package:flutter_yyts/redux/actions/home_action.dart';
 import 'package:flutter_yyts/redux/actions/profile_action.dart';
+import 'package:flutter_yyts/redux/actions/rank_action.dart';
 import 'package:flutter_yyts/redux/vm/main_vm.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -56,5 +58,15 @@ class RestfulApi {
     Map<String, dynamic> map = json.decode(response.body)["data"];
     ProfileVo profileVo = ProfileVo.fromJson(map);
     StoreContainer.global.dispatch(UpdateUserProfileAction(payload: profileVo));
+  }
+
+  static fetchRankList() async {
+    final url =
+        "http://ios.zmzapi.com/index.php?accesskey=519f9cab85c8059d17544947k361a827&client=1&g=api/v3&m=index&a=hot&limit=30";
+    var response = await http.get(url);
+    Map<String, dynamic> map = json.decode(response.body)["data"];
+    Ranks ranks = Ranks.fromJson(map);
+    StoreContainer.global
+        .dispatch(UpdateTopRanksAction(payload: ranks, isloading: false));
   }
 }

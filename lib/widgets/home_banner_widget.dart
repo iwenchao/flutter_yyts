@@ -50,7 +50,8 @@ class _HomeBannerViewState extends State<HomeBannerView> {
                         },
                         child: Image(
                           image: NetworkImage(
-                            ad.pic ?? "http://popeyelau.qiniudn.com/popeye.png",
+                            ad.pic ??
+                                "http://renren2.maoyun.tv/apptu/1554741804331_7765.jpg",
                           ),
                         ),
                       ))
