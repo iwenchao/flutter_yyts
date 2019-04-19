@@ -60,6 +60,7 @@ class RestfulApi {
     StoreContainer.global.dispatch(UpdateUserProfileAction(payload: profileVo));
   }
 
+  ///获取排行榜数据
   static fetchRankList() async {
     final url =
         "http://ios.zmzapi.com/index.php?accesskey=519f9cab85c8059d17544947k361a827&client=1&g=api/v3&m=index&a=hot&limit=30";
@@ -68,5 +69,9 @@ class RestfulApi {
     Ranks ranks = Ranks.fromJson(map);
     StoreContainer.global
         .dispatch(UpdateTopRanksAction(payload: ranks, isloading: false));
+  }
+
+  static fetchLibList() async {
+    final url = "";
   }
 }
