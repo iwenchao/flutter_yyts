@@ -55,6 +55,16 @@ flutter:
   - assets/images/drawer_bg.jpeg
   - assets/images/placeholder.png
   - assets/images/play_btn.png
+#  - assets/images/profile_bg.jpeg
+  - assets/images/日剧.png
+  - assets/images/片库.png
+  - assets/images/电影.png
+  - assets/images/美剧.png
+  - assets/images/英剧.png
+  - assets/images/韩剧.png
+  - assets/images/公开课.png
+  - assets/images/纪录片.png
+  - assets/images/其他语种.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
