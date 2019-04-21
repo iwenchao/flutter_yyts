@@ -1,4 +1,4 @@
-class Resource {
+class ResourceVo {
   String id;
   String cnname;
   String enname;
@@ -10,7 +10,7 @@ class Resource {
   String poster;
   String posterM;
 
-  Resource(
+  ResourceVo(
       {this.id,
       this.cnname,
       this.enname,
@@ -21,7 +21,7 @@ class Resource {
       this.area,
       this.poster});
 
-  Resource.fromJson(Map<String, dynamic> json) {
+  ResourceVo.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     cnname = json['cnname'];
     enname = json['enname'];

@@ -3,7 +3,7 @@ import 'package:flutter_yyts/models/resource_info.dart';
 import 'package:flutter_yyts/widgets/tag_widget.dart';
 
 class VideoGridItem extends StatelessWidget {
-  final Resource resource;
+  final ResourceVo resource;
 
   VideoGridItem({Key key, this.resource}) : super(key: key);
 

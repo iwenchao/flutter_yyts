@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'package:flutter_yyts/models/ad_info.dart';
 import 'package:flutter_yyts/models/article_info.dart';
+import 'package:flutter_yyts/models/comment_info.dart';
 import 'package:flutter_yyts/models/lib_resource_info.dart';
 import 'package:flutter_yyts/models/profile_info.dart';
 import 'package:flutter_yyts/models/ranks_info.dart';
 import 'package:flutter_yyts/models/tv_schedule_info.dart';
+import 'package:flutter_yyts/redux/actions/comment_action.dart';
 import 'package:flutter_yyts/redux/actions/home_action.dart';
 import 'package:flutter_yyts/redux/actions/lib_actions.dart';
 import 'package:flutter_yyts/redux/actions/profile_action.dart';
@@ -84,6 +86,7 @@ class RestfulApi {
     StoreContainer.global.dispatch(UpdateLibResourceListAction(payload: list));
   }
 
+  /// 根据条件 获取片库资源列表
   static fetchLibResourceList(
       {String category = "",
       String tv = "",
@@ -99,5 +102,16 @@ class RestfulApi {
     list = map.map((value) => LibResourceVo.fromJson(value)).toList();
     StoreContainer.global
         .dispatch(UpdateFiltedResourceListAction(payload: list));
+  }
+
+  ///获取热门评论
+  static fetchHotCommentList() async {
+    final url =
+        "http://ios.zmzapi.com/index.php?accesskey=519f9cab85c8059d17544947k361a827&client=1&g=api/v3&m=index&a=hot_comments_list&limit=15&page=1";
+    var response = await http.get(url);
+    List map = json.decode(response.body)["data"];
+    List<CommentVo> list = map.map((v) => CommentVo.fromJson(v)).toList();
+    //由store将action分发
+    StoreContainer.global.dispatch(UpdateCommentListAction(list));
   }
 }

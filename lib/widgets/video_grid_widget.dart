@@ -3,7 +3,7 @@ import 'package:flutter_yyts/models/resource_info.dart';
 import 'package:flutter_yyts/widgets/video_grid_item_widget.dart';
 
 class VideoGridView extends StatelessWidget {
-  final List<Resource> resources;
+  final List<ResourceVo> resources;
 
   VideoGridView({Key key, this.resources}) : super(key: key);
 

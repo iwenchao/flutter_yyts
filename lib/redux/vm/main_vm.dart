@@ -1,3 +1,4 @@
+import 'package:flutter_yyts/redux/states/dynamic_state.dart';
 import 'package:flutter_yyts/redux/states/home_state.dart';
 import 'package:flutter_yyts/redux/states/lib_state.dart';
 import 'package:flutter_yyts/redux/states/main_state.dart';
@@ -22,4 +23,5 @@ Store<ReduxState> reduxStore() => Store<ReduxState>(reduxReducer,
       profile: ProfileState.initialState(),
       rank: RankState.initialState(),
       lib: LibState.initialState(),
+      dynamicState: DynamicState.initialState(),
     ));
