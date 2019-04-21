@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_yyts/pages/dynamic_page.dart';
 import 'package:flutter_yyts/pages/home_page.dart';
 import 'package:flutter_yyts/pages/lib_page.dart';
 import 'package:flutter_yyts/pages/range_page.dart';
@@ -32,7 +33,7 @@ class _TabPageState extends State<TabPage> with TickerProviderStateMixin {
       body: TabBarView(
         controller: _tabController,
         physics: NeverScrollableScrollPhysics(),
-        children: <Widget>[HomePage(), RangePage(), LibPage(), HomePage()],
+        children: <Widget>[HomePage(), RangePage(), LibPage(), DynamicPage()],
       ),
       bottomNavigationBar: Material(
         color: Colors.grey[100],
