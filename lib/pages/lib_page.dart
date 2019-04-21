@@ -9,6 +9,8 @@ import 'package:flutter_yyts/redux/vm/lib_vm.dart';
 import 'package:flutter_yyts/widgets/grid_menus_widget.dart';
 import 'package:flutter_yyts/widgets/search_bar_widget.dart';
 import 'package:flutter_yyts/widgets/sort_bar_widget.dart';
+import 'package:flutter_yyts/widgets/video_list_item_widget.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class LibPage extends StatefulWidget {
   @override
@@ -57,12 +59,27 @@ class _LibPageState extends State<LibPage> {
             StoreConnector<ReduxState, LibViewModel>(
               converter: (store) => LibViewModel(store),
               builder: (context, vm) {
-                return Container(
-                  child: Text(
-                    "哈哈,这里是列表啊；\n 你等我一下，让我写完哦",
-                    textAlign: TextAlign.center,
-                  ),
-                );
+                return vm.isloading
+                    ? Center(
+                        child: CircularProgressIndicator(),
+                      )
+                    : ListView.builder(
+                        shrinkWrap: true,
+                        physics: ClampingScrollPhysics(),
+                        itemCount: vm.resourceList.length,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Fluttertoast.showToast(
+                                  msg: "这里还需要点击事件",
+                                  gravity: ToastGravity.CENTER);
+                            },
+                            child: VideoListItemView(
+                              resouceVo: vm.resourceList[index],
+                            ),
+                          );
+                        },
+                      );
               },
             ),
           ],
