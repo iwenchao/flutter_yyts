@@ -1,4 +1,4 @@
-class LibResource {
+class LibResourceVo {
   String id;
   String cnname;
   String enname;
@@ -17,7 +17,7 @@ class LibResource {
   String posterM;
   String posterS;
 
-  LibResource(
+  LibResourceVo(
       {this.id,
       this.cnname,
       this.enname,
@@ -36,7 +36,7 @@ class LibResource {
       this.posterM,
       this.posterS});
 
-  LibResource.fromJson(Map<String, dynamic> json) {
+  LibResourceVo.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     cnname = json['cnname'];
     enname = json['enname'];

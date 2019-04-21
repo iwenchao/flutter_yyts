@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'package:flutter_yyts/models/ad_info.dart';
 import 'package:flutter_yyts/models/article_info.dart';
+import 'package:flutter_yyts/models/lib_resource_info.dart';
 import 'package:flutter_yyts/models/profile_info.dart';
 import 'package:flutter_yyts/models/ranks_info.dart';
 import 'package:flutter_yyts/models/tv_schedule_info.dart';
 import 'package:flutter_yyts/redux/actions/home_action.dart';
+import 'package:flutter_yyts/redux/actions/lib_actions.dart';
 import 'package:flutter_yyts/redux/actions/profile_action.dart';
 import 'package:flutter_yyts/redux/actions/rank_action.dart';
 import 'package:flutter_yyts/redux/vm/main_vm.dart';
@@ -72,6 +74,30 @@ class RestfulApi {
   }
 
   static fetchLibList() async {
-    final url = "";
+    final url =
+        "http://ios.zmzapi.com/index.php?accesskey=519f9cab85c8059d17544947k361a827&client=1&g=api/v3&m=index&a=resource_storage&page=1";
+    var response = await http.get(url);
+    List map = json.decode(response.body)["data"];
+    List<LibResourceVo> list = [];
+    list = map.map((v) => LibResourceVo.fromJson(v)).toList();
+
+    StoreContainer.global.dispatch(UpdateLibResourceListAction(payload: list));
+  }
+
+  static fetchLibResourceList(
+      {String category = "",
+      String tv = "",
+      String year = "",
+      String channel = "",
+      String area = "",
+      String sort = "itemupdate"}) async {
+    final url =
+        "http://ios.zmzapi.com/index.php?accesskey=519f9cab85c8059d17544947k361a827&client=1&g=api/v3&m=index&a=resource_storage&area=$area&category=$category&channel=$channel&order=$sort&page=1&tv=$tv&year=$year";
+    var response = await http.get(url);
+    List map = json.decode(response.body)["data"];
+    List<LibResourceVo> list = [];
+    list = map.map((value) => LibResourceVo.fromJson(value)).toList();
+    StoreContainer.global
+        .dispatch(UpdateFiltedResourceListAction(payload: list));
   }
 }
