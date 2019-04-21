@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_yyts/api/api.dart';
 import 'package:flutter_yyts/widgets/hot_comment_list_widget.dart';
 
 class DynamicPage extends StatefulWidget {
@@ -16,6 +17,7 @@ class _DynamicPageState extends State<DynamicPage>
   void initState() {
     super.initState();
     controller = TabController(length: 2, vsync: this);
+    RestfulApi.fetchHotCommentList();
   }
 
   @override
@@ -41,9 +43,7 @@ class _DynamicPageState extends State<DynamicPage>
         child: TabBarView(
           controller: controller,
           children: <Widget>[
-            Center(
-              child: CommentListItemView(),
-            )
+            CommentListView(),
           ],
         ),
       ),
