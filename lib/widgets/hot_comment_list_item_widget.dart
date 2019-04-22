@@ -9,7 +9,12 @@ class CommentListItemView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text("dadadada"),
+      child: Column(
+	      crossAxisAlignment: CrossAxisAlignment.start,
+	      children: <Widget>[
+	      
+	      ],
+      ),
     );
   }
 }
