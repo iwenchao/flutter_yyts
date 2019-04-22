@@ -11,7 +11,23 @@ class CommentListItemView extends StatelessWidget {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[],
+        children: <Widget>[
+          Container(
+            child: Text("这里是用户信息"),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 8),
+            child: Text(commentVo.content),
+          ),
+          SizedBox(
+            height: 8,
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[],
+          )
+        ],
       ),
     );
   }
