@@ -39,9 +39,7 @@ class CommentListItemView extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-            
-            ],
+            children: <Widget>[],
           )
         ],
       ),
