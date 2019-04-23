@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_yyts/redux/states/main_state.dart';
 import 'package:flutter_yyts/redux/vm/dynamic_vm.dart';
+import 'package:flutter_yyts/widgets/help_list_item_widget.dart';
 
 class HelpListView extends StatelessWidget {
   @override
@@ -21,11 +22,8 @@ class HelpListView extends StatelessWidget {
                 itemCount: vm.helpList.length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Container(
-                      child: Text("hahahha"),
-                    ),
-                  );
+                      padding: const EdgeInsets.all(8),
+                      child: HelpListItemView(helpVo: vm.helpList[index]));
                 },
               );
       },
