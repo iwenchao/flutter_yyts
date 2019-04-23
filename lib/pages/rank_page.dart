@@ -8,14 +8,14 @@ import 'package:flutter_yyts/widgets/search_bar_widget.dart';
 import 'package:flutter_yyts/widgets/video_grid_widget.dart';
 
 ///排行榜页面
-class RangePage extends StatefulWidget {
+class RankPage extends StatefulWidget {
   @override
-  _RangePageState createState() {
-    return _RangePageState();
+  _RankPageState createState() {
+    return _RankPageState();
   }
 }
 
-class _RangePageState extends State<RangePage>
+class _RankPageState extends State<RankPage>
     with SingleTickerProviderStateMixin {
   TabController controller;
   final List<String> tabs = ["今日", "本月", "日剧", "电影", "新剧", "总榜"];
