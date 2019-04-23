@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_yyts/models/comment_info.dart';
+import 'package:flutter_yyts/models/enums.dart';
+import 'package:flutter_yyts/widgets/tag_widget.dart';
+import 'package:flutter_yyts/widgets/user_info_widget.dart';
 
 class CommentListItemView extends StatelessWidget {
   final CommentVo commentVo;
@@ -12,8 +15,19 @@ class CommentListItemView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Container(
-            child: Text("这里是用户信息"),
+          UserInfoView(
+            userLevelEnum: UserLevelEnum.superVip,
+            nickName: commentVo.nickname,
+            avatar: commentVo.userpic,
+            groudName: commentVo.groupName,
+            time: commentVo.dateline,
+            trailing: <Widget>[
+              TagView(
+                text: commentVo.channelCn,
+                color: Theme.of(context).primaryColor,
+                border: true,
+              )
+            ],
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 8),
@@ -25,7 +39,9 @@ class CommentListItemView extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[],
+            children: <Widget>[
+            
+            ],
           )
         ],
       ),
