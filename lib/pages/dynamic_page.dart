@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_yyts/api/api.dart';
+import 'package:flutter_yyts/widgets/help_list_widget.dart';
 import 'package:flutter_yyts/widgets/hot_comment_list_widget.dart';
 
 class DynamicPage extends StatefulWidget {
@@ -18,6 +19,7 @@ class _DynamicPageState extends State<DynamicPage>
     super.initState();
     controller = TabController(length: 2, vsync: this);
     RestfulApi.fetchHotCommentList();
+    RestfulApi.fetchHotHelpList();
   }
 
   @override
@@ -44,6 +46,7 @@ class _DynamicPageState extends State<DynamicPage>
           controller: controller,
           children: <Widget>[
             CommentListView(),
+            HelpListView(),
           ],
         ),
       ),

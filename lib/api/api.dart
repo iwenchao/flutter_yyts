@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter_yyts/models/ad_info.dart';
 import 'package:flutter_yyts/models/article_info.dart';
 import 'package:flutter_yyts/models/comment_info.dart';
+import 'package:flutter_yyts/models/help_info.dart';
 import 'package:flutter_yyts/models/lib_resource_info.dart';
 import 'package:flutter_yyts/models/profile_info.dart';
 import 'package:flutter_yyts/models/ranks_info.dart';
@@ -112,6 +113,15 @@ class RestfulApi {
     List map = json.decode(response.body)["data"];
     List<CommentVo> list = map.map((v) => CommentVo.fromJson(v)).toList();
     //由store将action分发
-    StoreContainer.global.dispatch(UpdateCommentListAction(list));
+    StoreContainer.global.dispatch(UpdateCommentListAction(payload: list));
+  }
+
+  static fetchHotHelpList() async {
+    final url =
+        "http://ios.zmzapi.com/index.php?accesskey=519f9cab85c8059d17544947k361a827&client=1&g=api/v3&m=index&a=help_list&limit=15&page=1";
+    var response = await http.get(url);
+    List map = json.decode(response.body)["data"];
+    List<HelpVo> comments = map.map((v) => HelpVo.fromJson(v)).toList();
+    StoreContainer.global.dispatch(UpdateHelpListAction(payload: comments));
   }
 }

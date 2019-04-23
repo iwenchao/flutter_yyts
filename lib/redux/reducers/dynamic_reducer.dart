@@ -6,5 +6,8 @@ DynamicState reducer(DynamicState state, ActionType action) {
   if (action is UpdateCommentListAction) {
     return state.copyWith(commentList: action.payload, isloading: false);
   }
+  if (action is UpdateHelpListAction) {
+    return state.copyWith(helpList: action.payload, isloading: false);
+  }
   return state;
 }
