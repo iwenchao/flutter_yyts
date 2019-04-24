@@ -3,6 +3,7 @@ import 'package:flutter_yyts/api/api.dart';
 import 'package:flutter_yyts/widgets/help_list_widget.dart';
 import 'package:flutter_yyts/widgets/hot_comment_list_widget.dart';
 
+///动态页面
 class DynamicPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
